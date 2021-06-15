@@ -1,24 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import Dashboard from './layouts/Dashboard'; //Module Loader→ uzantı görünmez. Ne yazmışsak arka planda onu import eder. (js or jsx)
+import 'semantic-ui-css/semantic.min.css' //USING: Semantic UI'dan Button| Label | Icon Minify Etmek için
+import { Container } from "semantic-ui-react"; //for failed to compile error...
+import Navi from './layouts/Navi';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Navi/>
+      <Container className="main">
+      <Dashboard/>
+      </Container>
+     </div>
   );
 }
 
