@@ -7,24 +7,23 @@ export default function ProductList() {
   //destructure...
   const [products, setProducts] = useState([]);
 
-
   //useEffect function...
   useEffect(() => {
     //...component yüklendiğinde yapılacakları yaz...(same=angular.load)
-    let productService = new ProductService()
+    let productService = new ProductService();
 
     //productService getProducts başarılı olursa...
-    productService.getProducts().then( result => setProducts(result.data.data))
+    productService
+      .getProducts()
+      .then((result) => setProducts(result.data.data));
+  }, []); //SECTION 12 ,[] - Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat sürekli istekte bulunur.
 
-  })
-
-
-//Table Celled Header settings: SwaggerUI - http://localhost:8080/swagger-ui.html adresinden bir adet ürün örneği alalım 
-//ve celled-headerlara göre column bilgisi alalım.  
-return (
+  //Table Celled Header settings: SwaggerUI - http://localhost:8080/swagger-ui.html adresinden bir adet ürün örneği alalım
+  //ve celled-headerlara göre column bilgisi alalım.
+  return (
     <div>
       <Table celled>
-        <Table.Header>  
+        <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Ürün Adı</Table.HeaderCell>
             <Table.HeaderCell>Birim Fiyatı</Table.HeaderCell>
@@ -36,17 +35,17 @@ return (
 
         <Table.Body>
           {
-            //Table.Row settings: step1: table-row tekrarı için javaScript Code Yaz→ {} → products.map((product) => ()
+            // Table.Row settings: step1: table-row tekrarı için javaScript Code Yaz→ {} → products.map((product) => ()
             products.map((product) => (
-              //step2: TODO: productları map et ve jsx üret...
+              //step2: productları map et ve jsx üret...
               //step3: Table-Row tekrar edeceği için buraya taşı!
-              <Table.Row key={ product.id } >  
+              <Table.Row key={product.id}>
                 {/* celled-headerlara göre column bilgisi alalım - UYARI: category dikkat→ product.category.categoryName şeklinde...*/}
-                {<Table.Cell>{ product.productName }</Table.Cell> }
-                <Table.Cell>{ product.unitPrice }</Table.Cell>
-                <Table.Cell>{ product.unitsInStock }</Table.Cell>
-                <Table.Cell>{ product.quantityPerUnit }</Table.Cell>
-                <Table.Cell>{ product.category.categoryName}</Table.Cell>
+                {<Table.Cell>{product.productName}</Table.Cell>}
+                <Table.Cell>{product.unitPrice}</Table.Cell>
+                <Table.Cell>{product.unitsInStock}</Table.Cell>
+                <Table.Cell>{product.quantityPerUnit}</Table.Cell>
+                <Table.Cell>{product.category.categoryName}</Table.Cell>
               </Table.Row>
             ))
           }
@@ -75,7 +74,7 @@ return (
   );
 }
 
-  /*=============================================     
+/*=============================================     
    { {
       "id": 1,
       "productName": "Chai",
