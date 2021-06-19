@@ -1,12 +1,14 @@
 import React from "react";
-import { Button } from "semantic-ui-react"; //intelisence
+import { Button, MenuItem } from "semantic-ui-react"; //intelisence
 
 
 export default function SignedOut() {
   return (
     <div>
-      <Button>Giriş yap</Button>
-      <Button>Kayıt ol</Button>
+      <MenuItem>
+        <Button primary>Giriş yap</Button>
+        <Button primary style={{marginLeft:"0.5em"}}>Kayıt ol</Button>
+      </MenuItem>
     </div>
   );
 }
