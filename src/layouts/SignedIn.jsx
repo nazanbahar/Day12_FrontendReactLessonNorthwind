@@ -11,7 +11,7 @@ export default function SignedIn() {
           src="https://avatars.githubusercontent.com/u/77123580?s=400&u=b8eccdb61d901b320fec71878787f37ed0fca9ac&v=4"
         />
 
-        <Dropdown>
+<Dropdown pointing="top left" text="Nazan"> 
           <Dropdown.Menu>
             <Dropdown.Item text="Bilgilerim" icon="info" />
             <Dropdown.Item text="Çıkış" icon="sign-out" />
